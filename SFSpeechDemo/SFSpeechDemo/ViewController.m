@@ -7,9 +7,16 @@
 //
 
 #import "ViewController.h"
-#import <Speech/Speech.h> //管理语音识别过程的上下文对象
+#import <Speech/Speech.h>
 
 @interface ViewController ()<SFSpeechRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property(nonatomic,strong)SFSpeechAudioBufferRecognitionRequest *abRequest;
+@property(nonatomic,strong)SFSpeechRecognitionTask *sprTask;
+@property(nonatomic,strong)SFSpeechRecognizer *spR;
+@property(nonatomic)SFSpeechRecognizerAuthorizationStatus status;
+@property(nonatomic,strong)AVAudioSession *audioSession;
+@property(nonatomic,strong)AVAudioEngine *audioEngine;
 
 @end
 
@@ -44,28 +51,30 @@
 
 - (void)speechRecognizer
 {
-    SFSpeechRecognizer *spR = [[SFSpeechRecognizer alloc] init];
-    spR.delegate = self;
+    self.spR = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh-CN"]];
+    self.spR.delegate = self;
+    
+    self.audioSession = [AVAudioSession sharedInstance];
+    self.audioEngine = [[AVAudioEngine alloc] init]; //管理所有的音频节点
+
+    NSError *error = nil;
+    [self.audioSession setCategory:AVAudioSessionCategoryRecord mode:AVAudioSessionModeMeasurement options:AVAudioSessionCategoryOptionDuckOthers error:&error];
+    NSError *activeError= nil;
+    [self.audioSession setActive:true withOptions:AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation error:&activeError];
     
     for (NSLocale *locale in [SFSpeechRecognizer supportedLocales]) {
         NSLog(@"languageCode = %@", locale.languageCode);
     }
-
+    
+    __block SFSpeechRecognizerAuthorizationStatus tempStatus = _status;
     //该方法为异步方法,用户第一次使用语音识别服务时，系统会记录用户的选择，之后的请求会立即返回之前记录的结果
     [SFSpeechRecognizer requestAuthorization:^(SFSpeechRecognizerAuthorizationStatus status) {
+        tempStatus = status;
         switch (status) {
             case SFSpeechRecognizerAuthorizationStatusAuthorized:
             {
                 //用户已授权
                 NSLog(@"用户已授权");
-                if (spR.isAvailable) { //检查语音识别服务是否可以对当前语音使用，否则需要联网
-                    SFSpeechAudioBufferRecognitionRequest *rRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
-                    [spR recognitionTaskWithRequest:rRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
-                        if (result) {
-                            NSLog(@"result = %@", result);
-                        }
-                    }];
-                }
             }
                 break;
             case SFSpeechRecognizerAuthorizationStatusDenied:
@@ -90,6 +99,34 @@
                 break;
         }
     }];
+}
+
+- (IBAction)startRecording:(id)sender {
+    if (_status == SFSpeechRecognizerAuthorizationStatusAuthorized) {
+        if (self.spR.isAvailable) { //检查语音识别服务是否可以对当前语音使用，否则需要联网
+            [self.sprTask cancel];
+            self.sprTask = nil;
+            
+            self.abRequest = [[SFSpeechAudioBufferRecognitionRequest alloc] init];
+            self.abRequest.shouldReportPartialResults = true;
+            if (@available(iOS 13.0, *)) {
+                self.abRequest.requiresOnDeviceRecognition = true;
+            } else {
+            }
+            
+            
+            self.sprTask = [self.spR recognitionTaskWithRequest:self.abRequest resultHandler:^(SFSpeechRecognitionResult * _Nullable result, NSError * _Nullable error) {
+                if (result) {
+                    NSLog(@"result = %@", result);
+                    if (result.isFinal) {
+                        
+                    }
+                }
+            }];
+            AVAudioInputNode *inputNode = self.audioEngine.inputNode;
+//            [inputNode ]
+        }
+    }
 }
 
 #pragma mark -- SFSpeechRecognizerDelegate
