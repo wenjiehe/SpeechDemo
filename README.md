@@ -22,6 +22,8 @@
 ```Objective-C
     <key>NSSpeechRecognitionUsageDescription</key>
     <string>音吧需要使用语音识别功能来为您服务</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>音吧需要使用麦克风来为您服务</string>
 ```
 
 ## API介绍
@@ -53,6 +55,36 @@ typedef NS_ENUM(NSInteger, SFSpeechRecognizerAuthorizationStatus) {
 ```
 
 ```Objective-C
+typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskState) {
+    SFSpeechRecognitionTaskStateStarting = 0,       
+    /*
+        Speech processing (potentially including recording) has not yet begun
+        语音处理(可能包括录音)还没有开始
+    */
+    SFSpeechRecognitionTaskStateRunning = 1,        
+    /*
+        Speech processing (potentially including recording) is running
+        语音处理(可能包括录音)正在运行
+    */
+    SFSpeechRecognitionTaskStateFinishing = 2,      
+    /*
+        No more audio is being recorded, but more recognition results may arrive
+        没有更多的音频被记录，但更多的识别结果可能到达
+    */
+    SFSpeechRecognitionTaskStateCanceling = 3,      
+    /*
+        No more recognition reuslts will arrive, but recording may not have stopped yet
+        没有更多的识别重新到达，但录音可能还没有停止
+    */
+    SFSpeechRecognitionTaskStateCompleted = 4,      
+    /*
+        No more results will arrive, and recording is stopped.
+        没有更多的结果将到达，记录将停止。
+    */
+} API_AVAILABLE(ios(10.0), macos(10.15));
+```
+
+```Objective-C
 typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskHint) {
     SFSpeechRecognitionTaskHintUnspecified = 0,     
     /* 
@@ -77,7 +109,6 @@ typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskHint) {
 } API_AVAILABLE(ios(10.0), macos(10.15));
 ```
 
-
 ## 注意事项
 
 * Speech框架必须iOS 10.0以后才能使用，包含10.0
@@ -88,3 +119,5 @@ typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskHint) {
 ## 参考资料
 
 [官网speech](https://developer.apple.com/documentation/speech)
+
+[AVAudioEngine资料](https://www.jianshu.com/p/506c62183763)

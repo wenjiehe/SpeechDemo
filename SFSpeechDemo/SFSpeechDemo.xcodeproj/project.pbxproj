@@ -16,6 +16,14 @@
 		3D0B8CB224A5E8F9001CF95A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B8CB124A5E8F9001CF95A /* main.m */; };
 		3D0B8CBC24A5E8F9001CF95A /* SFSpeechDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B8CBB24A5E8F9001CF95A /* SFSpeechDemoTests.m */; };
 		3D0B8CC724A5E8F9001CF95A /* SFSpeechDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B8CC624A5E8F9001CF95A /* SFSpeechDemoUITests.m */; };
+		3DF3214724A7B60100C74858 /* xiangchou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3214624A7B60100C74858 /* xiangchou.mp3 */; };
+		3DF3217124A8FCF700C74858 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3217024A8FCF700C74858 /* AppDelegate.swift */; };
+		3DF3217324A8FCF700C74858 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3217224A8FCF700C74858 /* SceneDelegate.swift */; };
+		3DF3217524A8FCF700C74858 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF3217424A8FCF700C74858 /* ViewController.swift */; };
+		3DF3217824A8FCF700C74858 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3217624A8FCF700C74858 /* Main.storyboard */; };
+		3DF3217A24A8FCFD00C74858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3217924A8FCFD00C74858 /* Assets.xcassets */; };
+		3DF3217D24A8FCFD00C74858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3217B24A8FCFD00C74858 /* LaunchScreen.storyboard */; };
+		3DF3218324A9224700C74858 /* xiangchou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3218224A9224700C74858 /* xiangchou.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +62,16 @@
 		3D0B8CC224A5E8F9001CF95A /* SFSpeechDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SFSpeechDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0B8CC624A5E8F9001CF95A /* SFSpeechDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SFSpeechDemoUITests.m; sourceTree = "<group>"; };
 		3D0B8CC824A5E8F9001CF95A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF3214624A7B60100C74858 /* xiangchou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiangchou.mp3; sourceTree = "<group>"; };
+		3DF3216E24A8FCF700C74858 /* SFSpeechDemo-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SFSpeechDemo-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF3217024A8FCF700C74858 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DF3217224A8FCF700C74858 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3DF3217424A8FCF700C74858 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DF3217724A8FCF700C74858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DF3217924A8FCFD00C74858 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DF3217C24A8FCFD00C74858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DF3217E24A8FCFD00C74858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DF3218224A9224700C74858 /* xiangchou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiangchou.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +96,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DF3216B24A8FCF700C74858 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -87,6 +112,7 @@
 				3D0B8C9E24A5E8F6001CF95A /* SFSpeechDemo */,
 				3D0B8CBA24A5E8F9001CF95A /* SFSpeechDemoTests */,
 				3D0B8CC524A5E8F9001CF95A /* SFSpeechDemoUITests */,
+				3DF3216F24A8FCF700C74858 /* SFSpeechDemo-Swift */,
 				3D0B8C9D24A5E8F6001CF95A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +123,7 @@
 				3D0B8C9C24A5E8F6001CF95A /* SFSpeechDemo.app */,
 				3D0B8CB724A5E8F9001CF95A /* SFSpeechDemoTests.xctest */,
 				3D0B8CC224A5E8F9001CF95A /* SFSpeechDemoUITests.xctest */,
+				3DF3216E24A8FCF700C74858 /* SFSpeechDemo-Swift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +138,7 @@
 				3D0B8CA524A5E8F6001CF95A /* ViewController.h */,
 				3D0B8CA624A5E8F6001CF95A /* ViewController.m */,
 				3D0B8CA824A5E8F6001CF95A /* Main.storyboard */,
+				3DF3214624A7B60100C74858 /* xiangchou.mp3 */,
 				3D0B8CAB24A5E8F9001CF95A /* Assets.xcassets */,
 				3D0B8CAD24A5E8F9001CF95A /* LaunchScreen.storyboard */,
 				3D0B8CB024A5E8F9001CF95A /* Info.plist */,
@@ -135,6 +163,21 @@
 				3D0B8CC824A5E8F9001CF95A /* Info.plist */,
 			);
 			path = SFSpeechDemoUITests;
+			sourceTree = "<group>";
+		};
+		3DF3216F24A8FCF700C74858 /* SFSpeechDemo-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				3DF3218224A9224700C74858 /* xiangchou.mp3 */,
+				3DF3217024A8FCF700C74858 /* AppDelegate.swift */,
+				3DF3217224A8FCF700C74858 /* SceneDelegate.swift */,
+				3DF3217424A8FCF700C74858 /* ViewController.swift */,
+				3DF3217624A8FCF700C74858 /* Main.storyboard */,
+				3DF3217924A8FCFD00C74858 /* Assets.xcassets */,
+				3DF3217B24A8FCFD00C74858 /* LaunchScreen.storyboard */,
+				3DF3217E24A8FCFD00C74858 /* Info.plist */,
+			);
+			path = "SFSpeechDemo-Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,12 +236,30 @@
 			productReference = 3D0B8CC224A5E8F9001CF95A /* SFSpeechDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		3DF3216D24A8FCF700C74858 /* SFSpeechDemo-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DF3217F24A8FCFD00C74858 /* Build configuration list for PBXNativeTarget "SFSpeechDemo-Swift" */;
+			buildPhases = (
+				3DF3216A24A8FCF700C74858 /* Sources */,
+				3DF3216B24A8FCF700C74858 /* Frameworks */,
+				3DF3216C24A8FCF700C74858 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SFSpeechDemo-Swift";
+			productName = "SFSpeechDemo-Swift";
+			productReference = 3DF3216E24A8FCF700C74858 /* SFSpeechDemo-Swift.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3D0B8C9424A5E8F6001CF95A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "贺文杰";
 				TargetAttributes = {
@@ -212,6 +273,9 @@
 					3D0B8CC124A5E8F9001CF95A = {
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 3D0B8C9B24A5E8F6001CF95A;
+					};
+					3DF3216D24A8FCF700C74858 = {
+						CreatedOnToolsVersion = 11.5;
 					};
 				};
 			};
@@ -231,6 +295,7 @@
 				3D0B8C9B24A5E8F6001CF95A /* SFSpeechDemo */,
 				3D0B8CB624A5E8F9001CF95A /* SFSpeechDemoTests */,
 				3D0B8CC124A5E8F9001CF95A /* SFSpeechDemoUITests */,
+				3DF3216D24A8FCF700C74858 /* SFSpeechDemo-Swift */,
 			);
 		};
 /* End PBXProject section */
@@ -243,6 +308,7 @@
 				3D0B8CAF24A5E8F9001CF95A /* LaunchScreen.storyboard in Resources */,
 				3D0B8CAC24A5E8F9001CF95A /* Assets.xcassets in Resources */,
 				3D0B8CAA24A5E8F6001CF95A /* Main.storyboard in Resources */,
+				3DF3214724A7B60100C74858 /* xiangchou.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +323,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3DF3216C24A8FCF700C74858 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF3217D24A8FCFD00C74858 /* LaunchScreen.storyboard in Resources */,
+				3DF3218324A9224700C74858 /* xiangchou.mp3 in Resources */,
+				3DF3217A24A8FCFD00C74858 /* Assets.xcassets in Resources */,
+				3DF3217824A8FCF700C74858 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +367,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3DF3216A24A8FCF700C74858 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DF3217524A8FCF700C74858 /* ViewController.swift in Sources */,
+				3DF3217124A8FCF700C74858 /* AppDelegate.swift in Sources */,
+				3DF3217324A8FCF700C74858 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -318,6 +405,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				3D0B8CAE24A5E8F9001CF95A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3DF3217624A8FCF700C74858 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DF3217724A8FCF700C74858 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DF3217B24A8FCFD00C74858 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DF3217C24A8FCFD00C74858 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -443,6 +546,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F87FYPRFA8;
 				INFOPLIST_FILE = SFSpeechDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +566,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F87FYPRFA8;
 				INFOPLIST_FILE = SFSpeechDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +650,52 @@
 			};
 			name = Release;
 		};
+		3DF3218024A8FCFD00C74858 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = F87FYPRFA8;
+				INFOPLIST_FILE = "SFSpeechDemo-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hewenjie.allFunctions;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_allFunctions;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3DF3218124A8FCFD00C74858 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = F87FYPRFA8;
+				INFOPLIST_FILE = "SFSpeechDemo-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hewenjie.allFunctions;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = dev_allFunctions;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -580,6 +731,15 @@
 			buildConfigurations = (
 				3D0B8CD224A5E8F9001CF95A /* Debug */,
 				3D0B8CD324A5E8F9001CF95A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DF3217F24A8FCFD00C74858 /* Build configuration list for PBXNativeTarget "SFSpeechDemo-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DF3218024A8FCFD00C74858 /* Debug */,
+				3DF3218124A8FCFD00C74858 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

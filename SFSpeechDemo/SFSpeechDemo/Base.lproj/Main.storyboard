@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-xF-8FC">
-                                <rect key="frame" x="28" y="74" width="358" height="698"/>
+                                <rect key="frame" x="28" y="74" width="358" height="637"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -28,22 +29,38 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="HnE-uz-c3c"/>
                                 </constraints>
-                                <state key="normal" title="start">
+                                <state key="normal" title="现场语音识别">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="startRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ru-7n-0li"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gH-Mc-x8t">
+                                <rect key="frame" x="50" y="727" width="314" height="47"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="e2y-ky-6OM"/>
+                                </constraints>
+                                <state key="normal" title="录制语音文件识别">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="speechRecognizerUrl:" destination="BYZ-38-t0r" eventType="touchUpInside" id="236-ax-jqg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="3gH-Mc-x8t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="5h6-7n-FZP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5pu-xF-8FC" secondAttribute="trailing" constant="28" id="B42-9I-kHL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6ec-0V-sbq" secondAttribute="trailing" constant="50" id="CWC-sR-Eb7"/>
-                            <constraint firstItem="6ec-0V-sbq" firstAttribute="top" secondItem="5pu-xF-8FC" secondAttribute="bottom" constant="21" id="J53-xC-61J"/>
+                            <constraint firstItem="6ec-0V-sbq" firstAttribute="top" secondItem="3gH-Mc-x8t" secondAttribute="bottom" constant="19" id="GsN-lB-XdN"/>
                             <constraint firstItem="6ec-0V-sbq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Lwx-mV-q7b"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6ec-0V-sbq" secondAttribute="bottom" constant="22" id="lqK-DY-Q5k"/>
                             <constraint firstItem="5pu-xF-8FC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="oPd-DJ-538"/>
+                            <constraint firstItem="3gH-Mc-x8t" firstAttribute="top" secondItem="5pu-xF-8FC" secondAttribute="bottom" constant="16" id="ohi-xN-DAH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3gH-Mc-x8t" secondAttribute="trailing" constant="50" id="vlz-hv-tbx"/>
                             <constraint firstItem="5pu-xF-8FC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="zd2-9N-AWR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
