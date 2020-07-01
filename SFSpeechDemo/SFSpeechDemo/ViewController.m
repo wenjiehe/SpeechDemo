@@ -38,6 +38,11 @@
     [self speechRecognizer];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
 /*
     注意事项:
     1.Speech框架必须iOS 10.0以后才能使用，包含10.0
