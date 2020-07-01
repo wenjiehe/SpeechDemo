@@ -24,6 +24,8 @@
 		3DF3217A24A8FCFD00C74858 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3217924A8FCFD00C74858 /* Assets.xcassets */; };
 		3DF3217D24A8FCFD00C74858 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3217B24A8FCFD00C74858 /* LaunchScreen.storyboard */; };
 		3DF3218324A9224700C74858 /* xiangchou.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3218224A9224700C74858 /* xiangchou.mp3 */; };
+		3DF3218524AD01C800C74858 /* 播放语音支持的语种.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3218424AD01C700C74858 /* 播放语音支持的语种.json */; };
+		3DF3218624AD01C800C74858 /* 播放语音支持的语种.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DF3218424AD01C700C74858 /* 播放语音支持的语种.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 		3DF3217C24A8FCFD00C74858 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF3217E24A8FCFD00C74858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF3218224A9224700C74858 /* xiangchou.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiangchou.mp3; sourceTree = "<group>"; };
+		3DF3218424AD01C700C74858 /* 播放语音支持的语种.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "播放语音支持的语种.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,7 @@
 				3D0B8CAD24A5E8F9001CF95A /* LaunchScreen.storyboard */,
 				3D0B8CB024A5E8F9001CF95A /* Info.plist */,
 				3D0B8CB124A5E8F9001CF95A /* main.m */,
+				3DF3218424AD01C700C74858 /* 播放语音支持的语种.json */,
 			);
 			path = SFSpeechDemo;
 			sourceTree = "<group>";
@@ -307,6 +311,7 @@
 			files = (
 				3D0B8CAF24A5E8F9001CF95A /* LaunchScreen.storyboard in Resources */,
 				3D0B8CAC24A5E8F9001CF95A /* Assets.xcassets in Resources */,
+				3DF3218524AD01C800C74858 /* 播放语音支持的语种.json in Resources */,
 				3D0B8CAA24A5E8F6001CF95A /* Main.storyboard in Resources */,
 				3DF3214724A7B60100C74858 /* xiangchou.mp3 in Resources */,
 			);
@@ -332,6 +337,7 @@
 			files = (
 				3DF3217D24A8FCFD00C74858 /* LaunchScreen.storyboard in Resources */,
 				3DF3218324A9224700C74858 /* xiangchou.mp3 in Resources */,
+				3DF3218624AD01C800C74858 /* 播放语音支持的语种.json in Resources */,
 				3DF3217A24A8FCFD00C74858 /* Assets.xcassets in Resources */,
 				3DF3217824A8FCF700C74858 /* Main.storyboard in Resources */,
 			);

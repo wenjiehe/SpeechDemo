@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import <Speech/Speech.h>
 
-@interface ViewController ()<SFSpeechRecognizerDelegate, SFSpeechRecognitionTaskDelegate>
+@interface ViewController ()<SFSpeechRecognizerDelegate, SFSpeechRecognitionTaskDelegate, AVSpeechSynthesizerDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property(nonatomic,strong)SFSpeechAudioBufferRecognitionRequest *abRequest;
 @property(nonatomic,strong)SFSpeechRecognitionTask *sprTask;
@@ -18,6 +18,10 @@
 @property(nonatomic,strong)AVAudioSession *audioSession;
 @property(nonatomic,strong)AVAudioEngine *audioEngine;
 @property(nonatomic,strong)AVSpeechSynthesizer *speechSynthesizer; //语音合成器
+
+@property (weak, nonatomic) IBOutlet UISlider *picSlider;
+@property (weak, nonatomic) IBOutlet UISlider *rateSlider;
+@property (weak, nonatomic) IBOutlet UISlider *volumeSlider;
 
 @end
 
@@ -93,8 +97,50 @@
         }
     }];
 }
+
+- (void)playSpeech:(NSString *)content language:(NSString *)language
+{
+    [[AVAudioSession sharedInstance] setActive:YES error:NULL];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    for (AVSpeechSynthesisVoice *voice in [AVSpeechSynthesisVoice speechVoices]) { //查看当前支持的语种
+//        NSLog(@"language = %@, name = %@, identifier = %@", voice.language, voice.name, voice.identifier);
+//    }
+//    NSLog(@"min = %.f, max = %.f, default = %.f", AVSpeechUtteranceMinimumSpeechRate, AVSpeechUtteranceMaximumSpeechRate, AVSpeechUtteranceDefaultSpeechRate);
+    //语音合成
+    AVSpeechUtterance *speechUtterance = [[AVSpeechUtterance alloc] initWithString:content];
+    speechUtterance.pitchMultiplier = self.picSlider.value; //语调 [0.5 - 2] Default = 1
+    speechUtterance.rate = AVSpeechUtteranceDefaultSpeechRate; //语速 [0 - 1] Default = 0
+    speechUtterance.volume = self.volumeSlider.value; //音量 [0-1] Default = 1
+    speechUtterance.postUtteranceDelay = 0.4; //读完一段后的停顿时间
+    speechUtterance.preUtteranceDelay = 0.3; //读一段话之前的停顿
+    
+    AVSpeechSynthesisVoice *speechSynthesisVoice = [AVSpeechSynthesisVoice voiceWithLanguage:language]; //设置语言种类
+    speechUtterance.voice = speechSynthesisVoice;
+    if (@available(iOS 13.0, *)) {
+        switch (speechSynthesisVoice.gender) {
+            case AVSpeechSynthesisVoiceGenderUnspecified:
+                NSLog(@"未识别");
+                break;
+            case AVSpeechSynthesisVoiceGenderMale:
+                NSLog(@"男性");
+                break;
+            case AVSpeechSynthesisVoiceGenderFemale:
+                NSLog(@"女性");
+                break;
+            default:
+                break;
+        }
+    } else {
+        
+    }
+    
+    self.speechSynthesizer = [[AVSpeechSynthesizer alloc] init];
+    self.speechSynthesizer.delegate = self;
+    [self.speechSynthesizer speakUtterance:speechUtterance];
+}
+
 - (IBAction)speechRecognizerUrl:(id)sender {
-    SFSpeechRecognizer *recognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
+    SFSpeechRecognizer *recognizer = [[SFSpeechRecognizer alloc] initWithLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh-CN"]];
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"xiangchou.mp3" withExtension:nil];
     NSAssert(url, @"语音文件初始化失败");
     SFSpeechURLRecognitionRequest *request = [[SFSpeechURLRecognitionRequest alloc] initWithURL:url];
@@ -115,6 +161,13 @@
         }
         NSLog(@"formattedString = %@\n", result.bestTranscription.formattedString);
     }];
+}
+
+- (IBAction)playSpeech:(UIButton *)sender {
+    NSAssert(self.textView.text.length, @"请输入内容");
+    if (self.textView.text.length > 0) {
+        [self playSpeech:self.textView.text language:@"zh-CN"];
+    }
 }
 
 - (IBAction)startRecording:(id)sender {
@@ -239,5 +292,42 @@
     
 }
 
+
+#pragma mark -- AVSpeechSynthesizerDelegate
+//开始播放语音 播放顺序:1
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
+
+//语音播放完成
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
+
+//语音播放暂停
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
+
+//继续播放语音
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
+
+//取消播放语音
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
+
+//语音播放中 播放顺序:2
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance API_AVAILABLE(ios(7.0), watchos(1.0), tvos(7.0), macos(10.14))
+{
+    NSLog(@"%s speechString = %@", __FUNCTION__, utterance.speechString);
+}
 
 @end

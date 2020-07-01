@@ -109,6 +109,24 @@ typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskHint) {
 } API_AVAILABLE(ios(10.0), macos(10.15));
 ```
 
+```Objective-C
+typedef NS_ENUM(NSInteger, AVSpeechBoundary) {
+    AVSpeechBoundaryImmediate, //立刻停止
+    AVSpeechBoundaryWord       //读完最后一个字停止
+} NS_ENUM_AVAILABLE(10_14, 7_0);
+```
+
+```Objective-C
+@property(nonatomic) NSTimeInterval preUtteranceDelay;    // Default is 0.0  读一段话之前的停顿
+@property(nonatomic) NSTimeInterval postUtteranceDelay;   // Default is 0.0  读完一段后的停顿时间
+```
+
+```Objective-C
+- (BOOL)stopSpeakingAtBoundary:(AVSpeechBoundary)boundary; //停止播放语音
+- (BOOL)pauseSpeakingAtBoundary:(AVSpeechBoundary)boundary; //暂停播放语音
+- (BOOL)continueSpeaking; //继续播放语音
+```
+
 ## 注意事项
 
 * Speech框架必须iOS 10.0以后才能使用，包含10.0
@@ -121,3 +139,5 @@ typedef NS_ENUM(NSInteger, SFSpeechRecognitionTaskHint) {
 [官网speech](https://developer.apple.com/documentation/speech)
 
 [AVAudioEngine资料](https://www.jianshu.com/p/506c62183763)
+
+[Languages supported by VoiceOver](https://support.apple.com/en-us/HT206175)
