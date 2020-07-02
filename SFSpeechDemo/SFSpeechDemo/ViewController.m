@@ -113,7 +113,7 @@
 //    NSLog(@"min = %.f, max = %.f, default = %.f", AVSpeechUtteranceMinimumSpeechRate, AVSpeechUtteranceMaximumSpeechRate, AVSpeechUtteranceDefaultSpeechRate);
     //语音合成
     AVSpeechUtterance *speechUtterance = [[AVSpeechUtterance alloc] initWithString:content];
-    speechUtterance.pitchMultiplier = self.picSlider.value; //语调 [0.5 - 2] Default = 1
+    speechUtterance.pitchMultiplier = self.picSlider.value; //音调 [0.5 - 2] Default = 1
     speechUtterance.rate = AVSpeechUtteranceDefaultSpeechRate; //语速 [0 - 1] Default = 0
     speechUtterance.volume = self.volumeSlider.value; //音量 [0-1] Default = 1
     speechUtterance.postUtteranceDelay = 0.4; //读完一段后的停顿时间

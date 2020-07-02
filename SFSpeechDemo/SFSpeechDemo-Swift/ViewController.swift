@@ -9,18 +9,20 @@
 import UIKit
 import Speech
 
-class ViewController: UIViewController, SFSpeechRecognizerDelegate {
+class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate {
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "zh_CN"))!
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private let speechSynthesizer = AVSpeechSynthesizer.init()
     
     @IBOutlet weak var textView: UITextView!
-    
     @IBOutlet weak var playRecordButton: UIButton!
-    
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var picSlider: UISlider!
+    @IBOutlet weak var rateSlider: UISlider!
+    @IBOutlet weak var volumeSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +115,29 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         audioEngine.prepare()
         try audioEngine.start()
     }
-
+    
+    private func playSpeech(_ content: String, _ language: String){
+        try? AVAudioSession.sharedInstance().setActive(true, options: .init())
+        try? AVAudioSession.sharedInstance().setCategory(.playback)
+        
+        let spe = AVSpeechUtterance.init(string: content)
+        spe.pitchMultiplier = self.picSlider.value
+        spe.rate = self.rateSlider.value
+        spe.volume = self.volumeSlider.value
+        spe.postUtteranceDelay = 0.4
+        spe.preUtteranceDelay = 0.3
+        
+        let spVoice = AVSpeechSynthesisVoice.init(language: language)
+        spe.voice = spVoice
+        
+        self.speechSynthesizer.delegate = self
+        self.speechSynthesizer.speak(spe)
+        
+    }
+    @IBAction func clickPlaySpeech(_ sender: Any) {
+        playSpeech(self.textView.text, "zh-CN")
+    }
+    
     @IBAction func clickPlayRecordButton(_ sender: Any) {
         guard let path = Bundle.main.path(forResource: "xiangchou", ofType: "mp3")  else {
             fatalError("初始化路径失败")
@@ -158,6 +182,38 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             recordButton.isEnabled = false
             recordButton.setTitle("当前不支持语音识别", for: .disabled)
         }
+    }
+    
+    // MARK:AVSpeechSynthesizerDelegate
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance){
+        
+    }
+
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance){
+        
+    }
+
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance){
+        
+    }
+
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didContinue utterance: AVSpeechUtterance){
+        
+    }
+
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didCancel utterance: AVSpeechUtterance){
+        
+    }
+
+    
+    @available(iOS 7.0, *)
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, willSpeakRangeOfSpeechString characterRange: NSRange, utterance: AVSpeechUtterance){
+        
     }
     
 }
